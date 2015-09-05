@@ -41,20 +41,11 @@
                     	</div>
                                         <p><a href="<?php echo base_url();?>home">Volver al Inicio</a></p>
                     
-                    <p><a href="<?php echo base_url();?>home/insertar_usuario" class="text-center">Registrarme</a></p>  
 		<div class="text-center">
                     <button  type="submit" name="iniciar" value="iniciar" class="btn btn-primary">Entrar</button> 
                     </div>
                     </form>
-				</div>
-                <div class="margin text-center">
-                <span>Sign in using social networks</span>
-                <br/>
-                <button class="btn bg-light-blue"><i class="fa fa-facebook"></i></button>
-                <button class="btn bg-aqua "><i class="fa fa-twitter"></i></button>
-                <button class="btn bg-red "><i class="fa fa-google-plus"></i></button>
-
-            </div>
+                </div>
 			</div>
 		</div>
 	</div>
