@@ -23,17 +23,27 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-user fa-2x"></i>Usuarios!<span class="caret"></span></a>
+                            <a href="#"><i class="fa fa-user fa-2x"></i>Gestion de Usuarios!<span class="caret"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
+                                    <div class="users_content">
+                                    <a><i class="fa fa-fw fa-list fa-2x"></i>Usuarios</a>
+                                    </div>
+                                </li>
+                                <br>
+                                <li>
+                                    <div class="rol_content">
+                                        <a><i class="fa fa-fw fa-group fa-2x"></i>Rol</a>
+                                    </div>
+                                </li>
+                                
+                                <li id="insertarUser" class="hide">
                                     <a href="<?php echo base_url();?>usuarios/insertar_usuarios" target="MiIframe"><i class="fa fa-fw fa-edit fa-2x"></i> Insertar Usuario</a>
                                 </li>
                                 <li>
                                     <a href="<?php echo base_url();?>usuarios/buscar_usuario" target="MiIframe"><i class="fa fa-fw fa-search fa-2x"></i> Buscar Usuario</a>
                                 </li>
-                                <li>
-                                    <a  href="<?php echo base_url();?>usuarios/get_usuarios"  target="MiIframe"><i class="fa fa-fw fa-list fa-2x"></i> Lista de Usuarios</a>
-                                </li>
+                                
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>

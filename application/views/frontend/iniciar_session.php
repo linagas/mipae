@@ -22,7 +22,7 @@
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.--><script>var __adobewebfontsappname__="dreamweaver"</script><script src="http://use.edgefonts.net/aguafina-script:n4:default;clara:n4:default;berkshire-swash:n4:default;acme:n4:default.js" type="text/javascript"></script>
 	</head>
-<body>
+        <body>
 <div class="container-fluid">
 	<div id="page-login" class="row">
 		<div class="col-xs-12 col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
@@ -41,22 +41,11 @@
                     	</div>
                                         <p><a href="<?php echo base_url();?>home">Volver al Inicio</a></p>
                     
-                    <p><a href="<?php echo base_url();?>home/insertar_usuario" class="text-center">Registrarme</a></p>  
+               
 		<div class="text-center">
                     <button  type="submit" name="iniciar" value="iniciar" class="btn btn-primary">Entrar</button> 
                     </div>
                     </form>
-				</div>
-                <div class="margin text-center">
-                <span>Sign in using social networks</span>
-                <br/>
-                <button class="btn bg-light-blue"><i class="fa fa-facebook"></i></button>
-                <button class="btn bg-aqua "><i class="fa fa-twitter"></i></button>
-                <button class="btn bg-red "><i class="fa fa-google-plus"></i></button>
-
-            </div>
-			</div>
-		</div>
 	</div>
 </div>
     <script type="text/javascript">
