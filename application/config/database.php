@@ -49,10 +49,10 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = '';
+$db['default']['username'] = 'postgres';
+$db['default']['password'] = '12345';
 $db['default']['database'] = 'bd_escuelas';
-$db['default']['dbdriver'] = 'mysql';
+$db['default']['dbdriver'] = 'postgre';
 $db['default']['dbprefix'] = '';
 $db['default']['pconnect'] = TRUE;
 $db['default']['db_debug'] = TRUE;

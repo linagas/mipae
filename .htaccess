@@ -5,8 +5,8 @@ RewriteEngine On
 #RewriteCond %{REQUEST_FILENAME} !-f
 #RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond $1 !^(index\.php|robots\.txt|sitemap\.xml|assets)
-RewriteRule ^(.*)$ /pc/index.php/$1 [L]
+RewriteRule ^(.*)$ /mipae/index.php/$1 [L]
 </IfModule>
 <IfModule !mod_rewrite.c>
-ErrorDocument 404 /pc/index.php
+ErrorDocument 404 /mipae/index.php
 </IfModule>

@@ -3,7 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/pc/application/controllers/madre.php</file>
+            <file>file:/C:/xampp/htdocs/mipae/application/views/backend/usuarios/lista_usuarios.php</file>
+            <file>file:/C:/xampp/htdocs/mipae/application/views/backend/container.php</file>
+            <file>file:/C:/xampp/htdocs/mipae/assets/js/generic.js</file>
+            <file>file:/C:/xampp/htdocs/mipae/application/views/backend/usuarios/insertar_usuario.php</file>
+            <file>file:/C:/xampp/htdocs/mipae/application/controllers/usuarios.php</file>
+            <file>file:/C:/xampp/htdocs/mipae/application/views/backend/sidebar_admin.php</file>
+            <file>file:/C:/xampp/htdocs/mipae/application/controllers/admin.php</file>
+            <file>file:/C:/xampp/htdocs/mipae/application/controllers/asistencia.php</file>
         </group>
     </open-files>
 </project-private>

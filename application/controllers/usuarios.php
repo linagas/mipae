@@ -29,11 +29,10 @@ class Usuarios extends CI_Controller{
                     
                 $data['nombre_usuario']=$this->session->userdata('nombre_usuario');
                 $data['privilegio']='Director';
-                    
-					$this->load->view('backend/header');
-      				$this->load->view('frontend/usuarios/sidebar_user');
-                    $this->load->view('backend/container', $data);
-                    $this->load->view('backend/footer');
+		$this->load->view('backend/header', $data);
+      		$this->load->view('frontend/usuarios/sidebar_user');
+                $this->load->view('backend/container');
+                $this->load->view('backend/footer');
                 }else{
                     print_r("NO tiene privilegio para acceder a estya pagina");
                     print_r("usuario inactivo");
@@ -52,8 +51,8 @@ class Usuarios extends CI_Controller{
                 'title' => 'Lista de Usuarios',
                 'proyect_name' => 'Progrma de Alimentacion Escolar MiPae'
                 
-                        );
-	$this->parser->parse('backend/usuarios/lista_usuarios', $data);
+            );
+	$response= $this->parser->parse('backend/usuarios/lista_usuarios', $data);
     }
     
     public function buscar_usuario(){
