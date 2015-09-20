@@ -1,29 +1,32 @@
 /* global projectURL */
+var projectUrl          ='http://localhost/mipae/'
 var madres_content      ='#madres_content';
 var usuario_content     ='#usuario_content';
-var escuela_content     = '#escuela_content'; 
-var asistencia_content  = '#asistencia_content'; 
-var incidencia_content  = '#incidencia_content';
-var nota_entrega_content= '#nota_entrega_content';
-var reportes_content    = '#reportes_content';
-    $(document).on('click', '.users_content', function () {
-        $.ajax({
-            type:"GET",
-            url: 'http://localhost/mipae/'+'usuarios/get_usuarios',
-            data:'',
-            success: function (data) //-->verificamos si el servidor envio una respuesta
-            {
-                $(usuario_content).removeClass('hide');
-                $(usuario_content).show();
-                $(usuario_content).html(data);
-            },
-            error:function (data) //-->verificamos si el servidor envio una respuesta
-            {				
-            }
-        });
+var escuela_content     ='#escuela_content'; 
+var asistencia_content  ='#asistencia_content'; 
+var incidencia_content  ='#incidencia_content';
+var nota_entrega_content='#nota_entrega_content';
+var reportes_content    ='#reportes_content';
+var rol_content         ='#rol_content'
+$(document).on('click', '.users_content', function () {
+    $.ajax({
+        type:"GET",
+        url: projectUrl+'usuarios/get_usuarios',
+        data:'',
+        success: function (data) //-->verificamos si el servidor envio una respuesta
+        {
+            $(rol_content).hide();
+            $(usuario_content).removeClass('hide');
+            $(usuario_content).show();
+            $(usuario_content).html(data);
+        },
+        error:function (data) //-->verificamos si el servidor envio una respuesta
+        {				
+        }
     });
+});
     /*Funcion para crear usuario nuevo*/
-    $(document).on('click', '#crear_usuario', function () {
+$(document).on('click', '#crear_usuario', function () {
         $(usuario_content).empty();
         var html = ('<div class="row">'+
                         '<ol class="breadcrumb panel-info">'+
@@ -34,242 +37,105 @@ var reportes_content    = '#reportes_content';
                     '<div class="row">'+
                         '<div class="col-md-1">'+
                         '</div>'+
-                        '<div class="col-md-10">'+
-                            '<div class="col-xs-12 col-sm-6 col-md-8">'+
+                        '<div class="col-md-10"> '+
+                            '<div class="col-xs-12 col-sm-6 col-md-12">'+
                                 '<h4>Registrar un nuevo usuario</h4>'+
                             '</div>'+
+                            '<div class="col-xs-12 col-sm-6 col-md-12">'+
+                                '<p>'+
+                                '<br/>'+
+                                '</p>'+
+                            '</div>'+
+                            '<div class="box-content">'+
+                                '<div class="col-xs-12">'+
+                                '<?php echo form_open(site_url("usuarios/insertar_usuarios"))?>'+
+                                '<?php echo form_hidden("process",  TRUE);?>'+
+                                    '<div class="row">'+
+                                        '<div class="col-lg-6">'+
+                                            '<div class="input-group">'+
+                                                '<span class="input-group-addon">Nombre:</span>'+
+                                                '<input name="nombre" class="form-control" type="text" required="required" placeholder="Albany" pattern="[a-zA-Z ]*");?>'+
+                                            '</div><!-- /input-group -->'+
+                                        '</div>'+
+                                        '<div class="col-lg-6">'+
+                                            '<div class="input-group">'+
+                                                '<span class="input-group-addon">Apellido:</span>'+
+                                                '<input name="apellido" class="form-control" type="text" required="required" placeholder="Inagas" pattern="[a-zA-Z ]*");?>'+
+                                            '</div><!-- /input-group -->'+
+                                        '</div>'+
+                                    '</div>'+
+                                '</div>'+
+                            '</div>'+
+                            '<div class="col-xs-12 col-sm-6 col-md-12">'+
+                                '<p>'+
+                                '<br/>'+
+                                '</p>'+
+                            '</div>'+
+                            '<div class="col-xs-12">'+
+                                '<div class="row">'+
+                                    '<div class="col-lg-6">'+
+                                        '<div class="input-group">'+
+                                            '<span class="input-group-addon">C&eacute;dula:</span>'+
+                                            '<input name="cedula" class="form-control" type="text" required="required" placeholder="V-12345678" pattern="[\V?\d{8}]*");?>'+
+                                        '</div><!-- /input-group -->'+
+                                    '</div>'+
+                                    '<div class="col-lg-6">'+
+                                        '<div class="input-group">'+
+                                            '<span class="input-group-addon">Correo El&eacute;ctronico:</span>'+
+                                            '<input name="correo" class="form-control" type="email" required="required" placeholder="Inagas" pattern="[/[\w-\.]{3,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/]*");?>'+
+                                        '</div><!-- /input-group -->'+
+                                    '</div>'+
+                                '</div>'+
+                            '</div>'+
+                            '<div class="col-xs-12 col-sm-6 col-md-12">'+
+                                '<p>'+
+                                '<br/>'+
+                                '</p>'+
+                            '</div>'+
+                            '<div class="col-xs-12">'+
+                                '<div class="row">'+
+                                    '<div class="col-lg-6">'+
+                                        '<div class="input-group">'+
+                                            '<span class="input-group-addon">Telef&oacute;:</span>'+
+                                            '<input name="telefono" class="form-control" type="text" required="required" placeholder="0212-0000000" pattern="[\d{4}([\-]\d{7})?]*");?>'+
+                                        '</div><!-- /input-group -->'+
+                                    '</div>'+
+                                    '<div class="col-lg-6">'+
+                                        '<div class="input-group">'+
+                                            '<span class="input-group-addon">Rol a asignar:</span>'+
+                                            '<select class="form-control" name="rol" required="required">'+
+                                                '<option value="#"> --Seleccione--</option>'+
+                                                '<option value="0" required="required"> --Mujer--</option>'+
+                                                '<option value="1" required="required"> --Hombre--</option>'+
+                                            '</select>'+
+                                        '</div><!-- /input-group -->'+
+                                    '</div>'+
+                                '</div>'+
+                            '</div>'+
+                            '<div class="col-xs-12 col-sm-6 col-md-12">'+
+                                '<p>'+
+                                '<br/>'+
+                                '</p>'+
+                            '</div>'+
+                            '<div class="col-xs-12">'+
+                                '<div class="row">'+
+                                    '<div class="col-lg-6">'+
+                                        '<div class="input-group">'+
+                                            '<span class="input-group-addon">Username:</span>'+
+                                            '<input name="nombre_usu" class="form-control" type="text" required="required" placeholder="0212-0000000" pattern="[\d{4}([\-]\d{7})?]*");?>'+
+                                        '</div><!-- /input-group -->'+
+                                    '</div>'+
+                                    '<div class="col-md-4">'+
+                                        '<button type="submit" class="btn btn-success">Guardar</button>'+
+                                    '</div>'+
+                                '</div>'+
+                            '</div>'+
+                        '<?php echo form_close();?>'+
                         '</div>'+
                         '<div class="col-md-1">'+
                         '</div>'+
-                    '</div>'+
-                    '<div class="box-content">'+
-                        '<div class="col-xs-6 ">'+
-                        '<?php echo form_open(site_url("usuarios/insertar_usuarios"))?>'+
-                        '<?php echo form_hidden("process",  TRUE);?>'+
-                            '<div class="row">'+
-                                '<div class="col-lg-6">'+
-                                    '<div class="input-group">'+
-                                        '<span class="input-group-addon">Nombre:</span>'+
-                                        '<input name="nombre" class="form-control" type="text" required="required" placeholder="Albany" pattern="[a-zA-Z ]*");?>'+
-                                    '</div><!-- /input-group -->'+
-                                '</div>'+
-            /*<div class="col-lg-4">
-                <div class="input-group">
-                    <span class="input-group-addon">
-                        Apellido:
-                    </span>
-                       <?php $attributesInput = array(
-                              'name' => 'apellido',
-                               'class' => 'form-control',
-                               'type' => 'text',
-                           'required'=> 'required',
-                           'placeholder'=>'Inagas',
-                           'pattern'=>'[a-zA-Z ]*'
-                        );?>
-                    <?php echo form_input($attributesInput); ?>
-                </div><!-- /input-group -->
-            </div><!-- /.col-lg-6 -->
-        </div><!-- /.row -->
-        <br>
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="input-group">
-                    <span class="input-group-addon">
-                       Cedula:
-                    </span>
-                         <?php $attributesInput = array(
-                                'name' => 'cedula',
-                                'class' => 'form-control',
-                                'type' => 'number',
-                             'required'=> 'required',
-                             'placeholder'=>'22351316',
-                             'maxlength'=>'8');?>
-                         <?php echo form_input($attributesInput); ?>
-                </div><!-- /input-group -->
-            </div><!-- /.col-lg-6 -->
-            <div class="col-lg-4">
-                <div class="input-group">
-                    <span class="input-group-addon">
-                        Sexo
-                    </span>
-                     <select class="form-control" name="sexo" required="required">
-                            <option value="#"> --Seleccione--</option>
-                            <option value="0" required="required"> --Mujer--</option>
-                            <option value="1" required="required"> --Hombre--</option>
-                     </select>
-                </div><!-- /input-group -->
-            </div><!-- /.col-lg-6 -->
-        </div><!-- /.row -->
-        <br>
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="input-group">
-                    <span class="input-group-addon">
-                       Fecha Nacimiento:
-                    </span>
-                         <?php
-  			$attributesInput= array(
-                            'name' => 'fecha_nacimiento',
-                            'class' =>'form-control',
-                            'type' =>'date',
-                            'required'=> 'required',
-                            'min'=>'1997-01-01'
-                            
-  			);?>
-                        <?php echo form_input($attributesInput);?>
-                </div><!-- /input-group -->
-            </div><!-- /.col-lg-6 -->
-            <div class="col-lg-4">
-                <div class="input-group">
-                    <span class="input-group-addon">
-                        Telefono:
-                    </span>
-                      <?php
-  			$attributesInput= array(
-                            'name' => 'telefono',
-                            'class' =>'form-control',
-                            'required'=> 'required',
-                            'maxlength'=>'12',
-                            'minlength'=>'12',
-                            'placeholder'=>'0212-0000000',
-                            'pattern'=>'(\d{4}([\-]\d{7})?)'
-  			);?>
-                        <?php echo form_input($attributesInput);?>
-                </div><!-- /input-group -->
-            </div><!-- /.col-lg-6 -->
-        </div><!-- /.row -->
-        <br>
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="input-group">
-                    <span class="input-group-addon">
-                       Correo
-                    </span>
-                          <?php
-  			$attributesInput= array(
-                            'name' => 'correo',
-                            'class' =>'form-control',
-                            'type' => 'email',
-                            'placeholder'=>'algo@gmail.com',
-                            'required'=> 'required'
-  			);?>
-                        <?php echo form_input($attributesInput);?>
-                </div><!-- /input-group -->
-            </div><!-- /.col-lg-6 -->
-            <div class="col-lg-4">
-                <div class="input-group">
-                    <span class="input-group-addon">
-                        Nombre usuario:
-                    </span>
-                       <?php
-  			$attributesInput= array(
-                            'name' => 'nombre_usu',
-                            'class' =>'form-control',
-                            'type' => 'text',
-                            'placeholder'=>'Albany12',
-                            'required'=> 'required',
-                            'pattern'=>'^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$'
-  			);?>
-                        <?php echo form_input($attributesInput);?>
-                </div><!-- /input-group -->
-            </div><!-- /.col-lg-6 -->
-        </div><!-- /.row -->
-        <br>
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="input-group">
-                    <span class="input-group-addon">
-                       Contraseña
-                       
-                    </span>
-                         <?php
-                            $attributesInput = array(
-                                'name' => 'contrasena',
-                                'class' => 'form-control',
-                                'type' => 'password',
-                                'placeholder'=>'*********',
-                                'required'=> 'required'
-                            );?>
-                            <?php echo form_input($attributesInput); echo $resultado;?> 
-                </div><!-- /input-group -->
-            </div><!-- /.col-lg-6 -->
-            <br>
-            <div class="col-lg-4">
-                <div class="input-group">
-                    <span class="input-group-addon">
-                       Confirmar Contraseña
-                    </span>
-                       <?php $resultado;
-                            $attributesInput = array(
-                                'name' => 'conf_contrasena',
-                                'class' => 'form-control',
-                                'type' => 'password',
-                                'placeholder'=>'*********',
-                                'required'=> 'required'
-                            );?>
-                            <?php echo form_input($attributesInput); ?>
-                </div><!-- /input-group -->
-            </div><!-- /.col-lg-6 -->
-        </div>
-         <div class="col-lg-4">
-                <div class="input-group">
-                    <span class="input-group-addon">
-                       Codigo Escuela
-                    </span>
-                    <select class="form-control" name="codigo_escuela" required="required">
-                            <option value="0"> --Seleccione--</option>
-                                <?php
-
-                                foreach ($escuela as $fila) 
-                                {
-                                ?>
-                                    <option value="<?= $fila-> codigo_escuela?>"><?= $fila-> nombre?></option>
-                                <?php
-                                }
-
-                                ?>
-                            </select>
-                </div><!-- /input-group -->
-            </div><!-- /.col-lg-6 -->
-        </div><!-- /.row -->
-      </div>
-              <br>
-
-                        <?php
-                                $attributesButton1 = array(
-                                    'name' => 'button',
-                                    'class' => 'btn btn-success',
-                                    'value' => 'Guardar Datos'
-                                    
-                                );
-                                echo form_submit($attributesButton1);
-                                ?> 
-				
-                            </div>
-                                    <?php echo form_close();?>
-		
-				</div>
-                
-			</div>
-		</div>*/
-	'</div>');
-        var url ='';
-        console.log();
+                    '</div>');
         $(usuario_content).html(html);
-        /*$.ajax({
-            type:"GET",
-            url: 'http://localhost/mipae/'+'usuarios/get_usuarios',
-            data:'',
-            success: function (data) //-->verificamos si el servidor envio una respuesta
-            {
-                $(usuario_content).removeClass('hide');
-                $(usuario_content).addClass('show');
-                $(usuario_content).html(data);
-            },
-            error:function (data) //-->verificamos si el servidor envio una respuesta
-            {				
-            }
-        });*/
     });
 
 $(document).on('click', '.acerca-de', function () {
@@ -348,4 +214,23 @@ $(document).on('click', '#buscar-asis', function () {
 							}
 						});
 		}
+});
+
+$(document).on('click', '.rol_content', function () {
+    $.ajax({
+        type:"GET",
+        url: projectUrl+'rol/get_rol',
+        data:'',
+        success: function (data) //-->verificamos si el servidor envio una respuesta
+        {
+            console.log('yrytryghgh');
+            $(usuario_content).hide();
+            $(rol_content).removeClass('hide');
+            $(rol_content).show();
+            $(rol_content).html(data);
+        },
+        error:function (data) //-->verificamos si el servidor envio una respuesta
+        {				
+        }
+    });
 });
