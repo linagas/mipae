@@ -7,6 +7,9 @@
         <div id="escuela_content" class="hide">1content</div>
     </div>
     <div class="row">
+        <div id="rol_content" class="hide">1content</div>
+    </div>
+    <div class="row">
         <div id="madres_content" class="hide">1content</div>
     </div>
     <div class="row">
