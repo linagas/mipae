@@ -7,7 +7,7 @@ class rol_model extends CI_Model{
     }
 		
     public function get_rol(){
-        $this->db->order_by('nombre','asc');
+        $this->db->order_by('rol','asc');
         $rol= $this->db->get('rol');
         if($rol->num_rows() > 0){
             return $rol->result();
