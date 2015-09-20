@@ -34,7 +34,7 @@ class Usuarios extends CI_Controller{
                 $this->load->view('backend/container');
                 $this->load->view('backend/footer');
                 }else{
-                    print_r("NO tiene privilegio para acceder a estya pagina");
+                    print_r("NO tiene privilegio para acceder a esta pagina");
                     print_r("usuario inactivo");
                 }
             //redirect(site_url('usuarios/get_usuarios'));
@@ -44,6 +44,9 @@ class Usuarios extends CI_Controller{
             
     }
     
+    public function formUser(){
+	$this->parser->parse('frontend/insertar_usuarios');
+    }
     public function get_usuarios(){
         $usuarios = $this->usuario_model->get_usuarios();
             $data=array(
@@ -89,7 +92,7 @@ class Usuarios extends CI_Controller{
         $process = $this->input->post('process');
         if ($process) {
             $contrasena = sha1($this->input->post('contrasena'));
-        $c_contrasena = sha1($this->input->post('conf_contrasena'));
+            $c_contrasena = sha1($this->input->post('conf_contrasena'));
         
            if($contrasena==$c_contrasena){
                $nombre = $this->input->post('nombre');
