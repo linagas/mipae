@@ -42,6 +42,12 @@ class Rol extends CI_Controller{
     }
     
     public function get_rol(){
+        $roles = $this->rol_model->get_rol();
+            $data=array(
+                'roles' => $roles,
+                'proyect_name' => 'Progrma de Alimentacion Escolar MiPae'
+            );
+	$response= $this->parser->parse('backend/rol/lista_roles', $data);
         
     }
     
