@@ -114,11 +114,8 @@
                             <tr>
                                     <td class="active">
                             <?php
-                        $attributesButton= array(
-                                    'name' => 'button',
-                                    'class' =>'btn btn-success',
-                                    'value' => 'Save User'
-                                                        );
+                        
+                            
                         echo form_submit($attributesButton);
                         echo form_hidden('process', 'process', TRUE)?>		
                                     </td>	

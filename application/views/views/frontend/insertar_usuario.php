@@ -1,12 +1,4 @@
-<html>
-    <head>
-        <title> Registrar Usuario </title>
-        <link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" rel="stylesheet">
-        <link href="<?php echo base_url(); ?>assets/css/bootstrap-theme.css" rel="styleshee
-              </head>
-              
-        <body class="container">
-        <div class="panel-info"><h3><strong>Registrar Usuario</strong></h3></div>
+<div class="panel-info"><h3><strong>Registrar Usuario</strong></h3></div>
         
          <?php echo form_open(site_url('usuarios/insertar_usuarios'))?>
         <div class="table-responsive">
@@ -151,11 +143,5 @@
                                 echo form_submit($attributesButton1);
                                 ?> 
 				<?php echo form_close();?>
-				
-				
-			</div>
-		
-	</body>
-	
-</html>
-       
+								
+</div>
