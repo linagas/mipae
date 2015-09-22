@@ -53,6 +53,7 @@ class Rol extends CI_Controller{
     
     public function insert_rol() {
         
+        
     }
         
     public function detail_rol($id_rol){
