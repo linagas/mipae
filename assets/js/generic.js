@@ -137,6 +137,71 @@ $(document).on('click', '#crear_usuario', function () {
                     '</div>');
         $(usuario_content).html(html);
     });
+$(document).on('click', '#crear_rol', function () {
+        $(rol_content).empty();
+        var html = ('<div class="row">'+
+                        '<ol class="breadcrumb panel-info">'+
+                            '<li><a href="#">Rol</a></li>'+
+                            '<li class="active"><a href="#">Agregar nuevo rol</a></li>'+
+                        '</ol>'+
+                    '</div>'+
+                    '<div class="row">'+
+                        '<div class="col-md-1">'+
+                        '</div>'+
+                        '<div class="col-md-10"> '+
+                            '<div class="col-xs-12 col-sm-6 col-md-12">'+
+                                '<h4>Añadir rol</h4>'+
+                            '</div>'+
+                            '<div class="col-xs-12 col-sm-6 col-md-12">'+
+                                '<p>'+
+                                '<br/>'+
+                                '</p>'+
+                            '</div>'+
+                            '<div class="box-content">'+
+                                '<div class="col-xs-12">'+
+                                '<?php echo form_open(site_url("rol/insert_rol"))?>'+
+                                '<?php echo form_hidden("process",  TRUE);?>'+
+                                    '<div class="row">'+
+                                        '<div class="col-lg-6">'+
+                                            '<div class="input-group">'+
+                                                '<span class="input-group-addon">Rol:</span>'+
+                                                '<input name="nombre" class="form-control" type="text" required="required" placeholder="Administrador" pattern="[a-zA-Z ]*");?>'+
+                                            '</div><!-- /input-group -->'+
+                                        '</div>'+
+                                        '<div class="col-lg-6">'+
+                                            '<div class="input-group">'+
+                                                '<span class="input-group-addon">Apellido:</span>'+
+                                                '<input name="apellido" class="form-control" type="text" required="required" placeholder="Inagas" pattern="[a-zA-Z ]*");?>'+
+                                            '</div><!-- /input-group -->'+
+                                        '</div>'+
+                                    '</div>'+
+                                '</div>'+
+                            '</div>'+
+                            '<div class="col-xs-12 col-sm-6 col-md-12">'+
+                                '<p>'+
+                                '<br/>'+
+                                '</p>'+
+                            '</div>'+
+                            '<div class="col-xs-12">'+
+                                '<div class="row">'+
+                                    '<div class="col-lg-6">'+
+                                        '<div class="input-group">'+
+                                            '<span class="input-group-addon">Username:</span>'+
+                                            '<input name="nombre_usu" class="form-control" type="text" required="required" placeholder="0212-0000000" pattern="[\d{4}([\-]\d{7})?]*");?>'+
+                                        '</div><!-- /input-group -->'+
+                                    '</div>'+
+                                    '<div class="col-md-4">'+
+                                        '<button type="submit" class="btn btn-success">Guardar</button>'+
+                                    '</div>'+
+                                '</div>'+
+                            '</div>'+
+                        '<?php echo form_close();?>'+
+                        '</div>'+
+                        '<div class="col-md-1">'+
+                        '</div>'+
+                    '</div>');
+        $(rol_content).html(html);
+    });
 
 $(document).on('click', '.acerca-de', function () {
      $('#central_body').html('');
