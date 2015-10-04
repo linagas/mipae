@@ -8,6 +8,8 @@ var incidencia_content  ='#incidencia_content';
 var nota_entrega_content='#nota_entrega_content';
 var reportes_content    ='#reportes_content';
 var rol_content         ='#rol_content'
+
+
 $(document).on('click', '.users_content', function () {
     $.ajax({
         type:"GET",
@@ -26,9 +28,27 @@ $(document).on('click', '.users_content', function () {
     });
 });
     /*Funcion para crear usuario nuevo*/
-$(document).on('click', '#crear_usuario', function () {
-        $(usuario_content).empty();
-        var html = ('<div class="row">'+
+$(document).on('click', '#crear_usuario', function () {    
+        $.ajax({
+        type:"GET",
+        url:projectUrl+'usuarios/create_user',
+        data:'',
+        success: function (data) //-->verificamos si el servidor envio una respuesta
+        {
+            console.log(data);
+            $(usuario_content).empty();
+            console.log('asfsdvfs¿');
+            $(rol_content).hide();
+            $(usuario_content).removeClass('hide');
+            $(usuario_content).show();
+            $(usuario_content).html(data);
+        },
+        error:function (data) //-->verificamos si el servidor envio una respuesta
+        {
+            console.log(data);
+        }
+    });
+       /* var html = ('<div class="row">'+
                         '<ol class="breadcrumb panel-info">'+
                             '<li><a href="#">Usuario</a></li>'+
                             '<li class="active"><a href="#">Nuevo Usuarios </a></li>'+
@@ -135,7 +155,7 @@ $(document).on('click', '#crear_usuario', function () {
                         '<div class="col-md-1">'+
                         '</div>'+
                     '</div>');
-        $(usuario_content).html(html);
+        $(usuario_content).html(html);*/
     });
 $(document).on('click', '#crear_rol', function () {
         $(rol_content).empty();
@@ -159,7 +179,7 @@ $(document).on('click', '#crear_rol', function () {
                             '</div>'+
                             '<div class="box-content">'+
                                 '<div class="col-xs-12">'+
-                                '<?php echo form_open(site_url("rol/insert_rol"))?>'+
+                                '<form id="form-nuevo-usuario" method="post" action="site_url("rol/insert_rol">'+
                                 '<?php echo form_hidden("process",  TRUE);?>'+
                                     '<div class="row">'+
                                         '<div class="col-lg-6">'+
@@ -195,7 +215,7 @@ $(document).on('click', '#crear_rol', function () {
                                     '</div>'+
                                 '</div>'+
                             '</div>'+
-                        '<?php echo form_close();?>'+
+                        '</form>'+
                         '</div>'+
                         '<div class="col-md-1">'+
                         '</div>'+
@@ -247,6 +267,7 @@ $(document).on('click', '.buscar-escuela', function () {
               '</div>'+
               '</form>');
    
+   
     $('#central_body').html(html);       
  });
 
@@ -279,23 +300,4 @@ $(document).on('click', '#buscar-asis', function () {
 							}
 						});
 		}
-});
-
-$(document).on('click', '.rol_content', function () {
-    $.ajax({
-        type:"GET",
-        url: projectUrl+'rol/get_rol',
-        data:'',
-        success: function (data) //-->verificamos si el servidor envio una respuesta
-        {
-            console.log('yrytryghgh');
-            $(usuario_content).hide();
-            $(rol_content).removeClass('hide');
-            $(rol_content).show();
-            $(rol_content).html(data);
-        },
-        error:function (data) //-->verificamos si el servidor envio una respuesta
-        {				
-        }
-    });
 });
