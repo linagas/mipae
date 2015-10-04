@@ -18,7 +18,6 @@ class Usuarios extends CI_Controller{
     
    function index(){
 
-
         $logged=$this->session->userdata('logged_in');
             if($logged){
             $privilegio=$this->session->userdata('privilegio');
@@ -42,10 +41,6 @@ class Usuarios extends CI_Controller{
                 redirect(site_url('home/iniciar_session'));
             }
             
-    }
-    
-    public function formUser(){
-	$this->parser->parse('frontend/insertar_usuarios');
     }
     public function get_usuarios(){
         $usuarios = $this->usuario_model->get_usuarios();

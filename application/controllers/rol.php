@@ -44,16 +44,35 @@ class Rol extends CI_Controller{
     public function get_rol(){
         $roles = $this->rol_model->get_rol();
             $data=array(
-                'roles' => $roles,
+                'lista_roles' => $roles,
                 'proyect_name' => 'Progrma de Alimentacion Escolar MiPae'
             );
-	$response= $this->parser->parse('backend/rol/lista_roles', $data);
+        $this->parser->parse('backend/rol/lista_roles', $data);
         
     }
     
     public function insert_rol() {
-        
-        
+        $process= $this->input->post('process');
+		$nombre= $this->input->post('nombre');
+                if($process){
+				$data['result'] = "Usuario Insertado";
+				$values=array('rol' => $nombre);
+				$insertedUser = $this->rol_model->insert_rol($values);
+					$response=array(
+						'yes' => "inserted values",
+						'values' =>$insertedUser,
+						'error' => "not error"
+					);
+                                        
+				$this->output->set_header('Content-Type: application/javascript; charset=UTF-8');
+				$users_json=$this->output->set_output(json_encode($response));
+			}else{
+				$response=array(
+					'error' => "error error error"
+				);
+			$this->output->set_header('Content-Type: application/javascript; charset=UTF-8');
+			$users_json=$this->output->set_output(json_encode($response));
+		}
     }
         
     public function detail_rol($id_rol){
@@ -63,7 +82,22 @@ class Rol extends CI_Controller{
     public function update_rol($id_rol){
     }
         
-    public function delete_rol($id_rol){ 
+    public function delete_rol($id_rol){
+        if(!empty($id_rol)){
+            $deletedRol = $this->rol_model->delete_rol($id_rol);
+            $response=array(
+                'yes' => "deleting",
+                'error' => "not error"
+            );
+            $this->output->set_header('Content-Type: application/javascript; charset=UTF-8');
+            $rol_json=$this->output->set_output(json_encode($response));
+        }  else {
+            $response=array(
+                'error' => "error error error"
+            );
+        }
+        
+    
     }
 }
 
