@@ -10,7 +10,7 @@ class rol_model extends CI_Model{
         $this->db->order_by('rol','asc');
         $rol= $this->db->get('rol');
         if($rol->num_rows() > 0){
-            return $rol->result();
+            return $rol->result_array();
         }
 
     }
@@ -30,7 +30,7 @@ class rol_model extends CI_Model{
     
     public function insert_rol($values){
 		$query=$this->db->insert('rol', $values);
-		return  $this->db->insert_id($query);
+		return true;  //$this->db->insert_id($query);
     }
     
     public function update_rol($id_rol, $values){
