@@ -325,6 +325,7 @@ class CI_DB_postgre_driver extends CI_DB {
 	 * @access	public
 	 * @return	integer
 	 */
+            
 	function insert_id()
 	{
 		$v = $this->_version();
